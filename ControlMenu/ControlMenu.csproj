@@ -11,6 +11,7 @@
     <ProjectReference Include="..\LiczbyZespolone\LiczbyZespolone.csproj" />
     <ProjectReference Include="..\Logarytm_e\Logarytm_e.csproj" />
     <ProjectReference Include="..\MetodaCramera\MetodaCramera.csproj" />
+    <ProjectReference Include="..\MetodaMacierzyOdwrotnej\MetodaMacierzyOdwrotnej.csproj" />
     <ProjectReference Include="..\MetodyNumeryczneZadania\MetodyNumeryczneZadania.csproj" />
     <ProjectReference Include="..\MnozenieMacierzy\OperacjeMacierzy.csproj" />
     <ProjectReference Include="..\OdwracanieMacierzy\OdwracanieMacierzy.csproj" />

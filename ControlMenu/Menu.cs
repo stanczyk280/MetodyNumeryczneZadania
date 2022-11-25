@@ -1,5 +1,6 @@
 ﻿using Logarytm_e;
 using MetodaCramera;
+using MetodaMacierzyOdwrotnej;
 using MetodyNumeryczneZadania;
 using OdwracanieMacierzy;
 using OperacjeMacierzy;
@@ -20,7 +21,8 @@ namespace ControlMenu
             Console.WriteLine("5) Wyznaczniki Macierzy");
             Console.WriteLine("6) Odwroc Macierz");
             Console.WriteLine("7) Metoda Crammera");
-            Console.WriteLine("8) Zakoncz");
+            Console.WriteLine("8) Metoda Macierzy Odwrotnej");
+            Console.WriteLine("9) Zakoncz");
         }
 
         public static bool MainMenu()
@@ -70,6 +72,12 @@ namespace ControlMenu
                     return true;
 
                 case "8":
+                    Console.Clear();
+                    LaunchMetodaMacierzyOdwrotnej();
+                    ReturnToMenu();
+                    return true;
+
+                case "9":
                     Console.WriteLine("exiting...");
                     return false;
 
@@ -84,6 +92,14 @@ namespace ControlMenu
             Console.ReadLine();
             Console.Clear();
             DisplayMenu();
+        }
+
+        private static void LaunchMetodaMacierzyOdwrotnej()
+        {
+            double[,] macierzWspl = { { 5, -2, 3 }, { -2, 3, 1 }, { -1, 2, 3 } };
+            double[,] macierzWyrazowWolnych = { { 21 }, { -4 }, { 5 } };
+
+            RozwiazMacierzOdwrotna.Rozwiaz(macierzWspl, macierzWyrazowWolnych);
         }
 
         private static void LaunchCramer()
