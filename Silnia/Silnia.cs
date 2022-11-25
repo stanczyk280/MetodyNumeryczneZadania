@@ -6,60 +6,53 @@ using System.Threading.Tasks;
 
 namespace Silnia
 {
-    public class Silnia
+    public static class Silnia
     {
-        public int Stopien { get; set; }
-
-        public Silnia(int stopien)
-        {
-            Stopien = stopien;
-        }
-
-        public short ObliczSilnieShort()
+        public static short ObliczSilnieShort(int stopien)
         {
             short wynik = 1;
-            if (Stopien != 0)
+            if (stopien != 0)
             {
-                for (short i = Convert.ToInt16(Stopien); i > 1; i--)
+                for (short i = Convert.ToInt16(stopien); i > 1; i--)
                 {
                     wynik *= i;
                 }
             }
-            if (Stopien < 0)
+            if (stopien < 0)
             {
                 throw new ArgumentException();
             }
             return wynik;
         }
 
-        public int ObliczSilnieInt()
+        public static int ObliczSilnieInt(int stopien)
         {
             int wynik = 1;
-            if (Stopien != 0)
+            if (stopien != 0)
             {
-                for (int i = Stopien; i > 1; i--)
+                for (int i = stopien; i > 1; i--)
                 {
                     wynik *= i;
                 }
             }
-            if (Stopien < 0)
+            if (stopien < 0)
             {
                 throw new ArgumentException();
             }
             return wynik;
         }
 
-        public long ObliczSilnieLong()
+        public static long ObliczSilnieLong(int stopien)
         {
             long wynik = 1;
-            if (Stopien != 0)
+            if (stopien != 0)
             {
-                for (long i = Convert.ToInt64(Stopien); i > 1; i--)
+                for (long i = Convert.ToInt64(stopien); i > 1; i--)
                 {
                     wynik *= i;
                 }
             }
-            if (Stopien < 0)
+            if (stopien < 0)
             {
                 throw new ArgumentException();
             }
@@ -71,11 +64,10 @@ namespace Silnia
     {
         private static void Main(string[] args)
         {
-            Console.WriteLine("Wprowadz stopien silni: ");
-            Silnia s1 = new Silnia(Convert.ToInt32(Console.ReadLine()));
-            Console.WriteLine("16b silnia: " + s1.ObliczSilnieShort());
-            Console.WriteLine("32b silnia: " + s1.ObliczSilnieInt());
-            Console.WriteLine("64b silnia: " + s1.ObliczSilnieLong());
+            int stopien = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("16b silnia: " + Silnia.ObliczSilnieShort(stopien));
+            Console.WriteLine("32b silnia: " + Silnia.ObliczSilnieInt(stopien));
+            Console.WriteLine("64b silnia: " + Silnia.ObliczSilnieLong(stopien));
         }
     }
 }

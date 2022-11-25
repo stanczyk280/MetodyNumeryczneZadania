@@ -42,7 +42,7 @@
 
         public static double[,] Przemnoz(double[,] macierzA, double[,] macierzB)
         {
-            int Arows = (macierzA.GetLength(0));
+            int Arows = macierzA.GetLength(0);
             int Acols = macierzA.GetLength(1);
             int Bcols = macierzB.GetLength(1);
             double[,] macierzWynikowa = new double[Arows, Bcols];
@@ -62,11 +62,10 @@
 
     internal static class Program
     {
-        private static double[,] macierzA = { { -1, 4, 2, -2 }, { 1, 2, -3, 0 }, { -1, 0, 0, 5 } };
-        private static double[,] macierzB = { { 2, -1 }, { 1, 3 }, { -2, 0 }, { 0, -4 } };
-
         private static void Main(string[] args)
         {
+            double[,] macierzA = { { -1, 4, 2, -2 }, { 1, 2, -3, 0 }, { -1, 0, 0, 5 } };
+            double[,] macierzB = { { 2, -1 }, { 1, 3 }, { -2, 0 }, { 0, -4 } };
             Console.WriteLine("Macierz A:");
             Macierz.Wypisz(macierzA);
             Console.WriteLine();

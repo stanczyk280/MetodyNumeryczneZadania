@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace MetodyNumeryczneZadania
 {
-    internal class Program
+    internal static class Program
     {
+        private static void Main(string[] args)
+        {
+        }
     }
 }
