@@ -1,4 +1,5 @@
-﻿using Logarytm_e;
+﻿using EliminacjaGaussa;
+using Logarytm_e;
 using MetodaCramera;
 using MetodaMacierzyOdwrotnej;
 using MetodyNumeryczneZadania;
@@ -22,7 +23,8 @@ namespace ControlMenu
             Console.WriteLine("6) Odwroc Macierz");
             Console.WriteLine("7) Metoda Crammera");
             Console.WriteLine("8) Metoda Macierzy Odwrotnej");
-            Console.WriteLine("9) Zakoncz");
+            Console.WriteLine("9) Eliminacja Gaussa i Eliminacja Gaussa-Jordana");
+            Console.WriteLine("10) Zakoncz");
         }
 
         public static bool MainMenu()
@@ -78,6 +80,12 @@ namespace ControlMenu
                     return true;
 
                 case "9":
+                    Console.Clear();
+                    LaunchGaussJordan();
+                    ReturnToMenu();
+                    return true;
+
+                case "10":
                     Console.WriteLine("exiting...");
                     return false;
 
@@ -100,6 +108,34 @@ namespace ControlMenu
             double[,] macierzWyrazowWolnych = { { 21 }, { -4 }, { 5 } };
 
             RozwiazMacierzOdwrotna.Rozwiaz(macierzWspl, macierzWyrazowWolnych);
+        }
+
+        private static void LaunchGaussJordan()
+        {
+            double[,] macierzWspl =
+            {
+                { -1, 2, -3, 3, 5 },
+                { 8, 0, 7, 4, -1 },
+                { -3, 4, -3, 2, -2 },
+                { 8, -3, -2, 1, 2 },
+                { -2, -1, -6, 9, 0 }
+            };
+            Console.WriteLine("Macierz wpsolczynnikow: ");
+            Macierz.Wypisz(macierzWspl);
+            Console.WriteLine();
+            Console.WriteLine("Macierz wyrazow wolnych");
+            double[] macierzWyrazowWolnych = { 56, 62, -10, 14, 28 };
+            for (var i = 0; i < macierzWyrazowWolnych.Length; i++)
+            {
+                Console.WriteLine(macierzWyrazowWolnych[i]);
+            }
+            int n = macierzWspl.GetLength(0);
+            Console.WriteLine();
+            Console.WriteLine("Eliminacja Gaussa: ");
+            Gauss.RozwiazGauss(macierzWspl, macierzWyrazowWolnych, n);
+            Console.WriteLine();
+            Console.WriteLine("Eliminacja GaussaJordana");
+            GaussJordan.RozwiazGaussJordan(macierzWspl, macierzWyrazowWolnych, n);
         }
 
         private static void LaunchCramer()

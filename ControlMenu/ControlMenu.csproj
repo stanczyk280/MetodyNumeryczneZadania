@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\EliminacjaGaussa\EliminacjaGaussa.csproj" />
     <ProjectReference Include="..\LiczbyZespolone\LiczbyZespolone.csproj" />
     <ProjectReference Include="..\Logarytm_e\Logarytm_e.csproj" />
     <ProjectReference Include="..\MetodaCramera\MetodaCramera.csproj" />

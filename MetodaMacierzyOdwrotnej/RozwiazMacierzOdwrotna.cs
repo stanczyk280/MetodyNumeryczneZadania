@@ -13,7 +13,7 @@ namespace MetodaMacierzyOdwrotnej
             Console.WriteLine("Macierz wyrazow wolnych:");
             Macierz.Wypisz(macierzWyrazowWolnych);
             Console.WriteLine();
-            Console.WriteLine("Odwrcona macierz wspolczynnikow:");
+            Console.WriteLine("Odwrcona macierz wspolczynnikow: ");
             double[,] macierzWsplOdwrotna = MacierzOdwrotna.OdwrocMacierz(macierzWspl);
             Macierz.Wypisz(macierzWsplOdwrotna);
             Console.WriteLine();
