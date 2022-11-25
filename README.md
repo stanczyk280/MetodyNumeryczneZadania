@@ -10,7 +10,7 @@ Done so far:
 - Determinant using Laplace
 - Crammer Rule
 - Matrix inverse
-In work:
+- In work:
 - Inverse Matrix Method
 - Gauss elimination
 - Jordan Gauss elimination
