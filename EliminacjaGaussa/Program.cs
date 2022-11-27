@@ -1,4 +1,6 @@
-﻿namespace EliminacjaGaussa
+﻿using OperacjeMacierzy;
+
+namespace EliminacjaGaussa
 {
     internal static class Program
     {

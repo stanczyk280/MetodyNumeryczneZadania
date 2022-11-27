@@ -16,6 +16,7 @@
     <ProjectReference Include="..\MetodyNumeryczneZadania\MetodyNumeryczneZadania.csproj" />
     <ProjectReference Include="..\MnozenieMacierzy\OperacjeMacierzy.csproj" />
     <ProjectReference Include="..\OdwracanieMacierzy\OdwracanieMacierzy.csproj" />
+    <ProjectReference Include="..\RozkladLU\RozkladLU.csproj" />
     <ProjectReference Include="..\Silnia\Silnia.csproj" />
     <ProjectReference Include="..\Wyznaczniki\Wyznaczniki.csproj" />
   </ItemGroup>

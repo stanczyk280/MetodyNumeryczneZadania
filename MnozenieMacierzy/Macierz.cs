@@ -9,7 +9,7 @@
             {
                 for (var j = 0; j < cols; j++)
                 {
-                    macierzJednostkowa[i, j] = 1;
+                    macierzJednostkowa[i, i] = 1;
                 }
             }
             return macierzJednostkowa;
@@ -21,7 +21,8 @@
             {
                 for (var j = 0; j < macierz.GetLength(1); j++)
                 {
-                    Console.Write(macierz[i, j].ToString().PadLeft(5, ' ') + " ");
+                    Console.Write(("{0:F3}").PadRight(5, ' '), macierz[i, j]);
+                    Console.Write(" ");
                 }
                 Console.WriteLine();
             }

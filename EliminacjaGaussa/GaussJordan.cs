@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OperacjeMacierzy;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -54,6 +55,21 @@ namespace EliminacjaGaussa
             //{
             //    Console.WriteLine("x" + (i + 1) + "= " + Math.Round(x[i]));
             //}
+        }
+
+        public static void OdwrocTest(double[,] macierzA, double[] macierzB, int n)
+        {
+            double[,] macierzOdwrotna = new double[n, n];
+            double[] x = RozwiazGaussJordan(macierzA, macierzB, n);
+            for (var i = 0; i < n; i++)
+            {
+                for (var j = 0; j < n; j++)
+                {
+                    macierzOdwrotna[i, j] = macierzA[i, j] * x[i];
+                }
+            }
+            Console.WriteLine();
+            Macierz.Wypisz(macierzOdwrotna);
         }
     }
 }

@@ -78,54 +78,6 @@ namespace RozkladLU
             return macierzL;
         }
 
-        //public static void RozkladLU(double[,] macierz)
-        //{
-        //    if (macierz.GetLength(0) != macierz.GetLength(1))
-        //    {
-        //        throw new ArgumentException("Macierz nie jest kwadratowa");
-        //    }
-
-        //    int n = macierz.GetLength(0);
-        //    double tmp = 0;
-        //    double[,] macierzU = new double[n, n];
-        //    double[,] macierzL = new double[n, n];
-
-        //    for (var i = 0; i < n; i++)
-        //    {
-        //        for (var j = 0; j < n; j++)
-        //        {
-        //            macierzU[i, j] = macierz[i, j];
-        //        }
-        //        macierzL[i, i] = 1;
-        //    }
-        //    for (var i = 0; i < n; i++)
-        //    {
-        //        for (var j = 0; j < n; j++)
-        //        {
-        //            if (j > i)
-        //            {
-        //                tmp = macierzU[j, i] / macierzU[i, i];
-        //                macierzL[j, i] = tmp;
-        //                for (var k = 0; k < n; k++)
-        //                {
-        //                    macierzU[j, k] = macierzU[j, k] - tmp * macierzU[i, k];
-        //                }
-        //            }
-        //        }
-        //    }
-        //    Console.WriteLine("Macierz wejsciowa:");
-        //    Macierz.Wypisz(macierz);
-        //    Console.WriteLine("======================");
-        //    Console.WriteLine("Macierz U:");
-        //    Macierz.Wypisz(macierzU);
-        //    Console.WriteLine("======================");
-        //    Console.WriteLine("Macierz L:");
-        //    Macierz.Wypisz(macierzL);
-        //    Console.WriteLine("======================");
-        //    Console.WriteLine("Sprawdzenie L X U:");
-        //    Macierz.Wypisz(Macierz.Przemnoz(macierzL, macierzU));
-        //}
-
         public static void RozwiazLU(double[,] macierzWspl, double[] macierzWyrazowWolnych)
         {
             double[,] macierzU = GetUpper(macierzWspl);
@@ -138,11 +90,11 @@ namespace RozkladLU
             y = RozwiazMacierzL(macierzL, macierzWyrazowWolnych);
             x = RozwiazMacierzU(macierzU, y);
 
-            for (var i = 0; i < n; i++)
-            {
-                Console.WriteLine("y" + (i + 1) + "= " + y[i]);
-            }
-            Console.WriteLine("==============");
+            //for (var i = 0; i < n; i++)
+            //{
+            //    Console.WriteLine("y" + (i + 1) + "= " + y[i]);
+            //}
+            //Console.WriteLine("==============");
             for (var i = 0; i < n; i++)
             {
                 Console.WriteLine("x" + (i + 1) + "= " + x[i]);
@@ -187,6 +139,18 @@ namespace RozkladLU
 
             return x;
         }
+
+        public static double WyznacznikLU(double[,] macierz)
+        {
+            double[,] macierzU = GetUpper(macierz);
+            int n = macierz.GetLength(0);
+            double tmp = 1;
+            for (var i = 0; i < n; i++)
+            {
+                tmp *= macierzU[i, i];
+            }
+            return tmp;
+        }
     }
 
     internal static class Program
@@ -207,9 +171,57 @@ namespace RozkladLU
             Console.WriteLine("===================");
             Macierz.Wypisz(LU.GetLower(macierz));
             Console.WriteLine("===================");
-            Macierz.Wypisz(Macierz.Przemnoz(LU.GetLower(macierz), LU.GetUpper(macierz)));
+            Console.WriteLine("Wyznacznik macierzyA= " + LU.WyznacznikLU(macierz));
 
             LU.RozwiazLU(macierzWspl, macierzWyrazowWolnych);
         }
     }
 }
+
+//public static void RozkladLU(double[,] macierz)
+//{
+//    if (macierz.GetLength(0) != macierz.GetLength(1))
+//    {
+//        throw new ArgumentException("Macierz nie jest kwadratowa");
+//    }
+
+//    int n = macierz.GetLength(0);
+//    double tmp = 0;
+//    double[,] macierzU = new double[n, n];
+//    double[,] macierzL = new double[n, n];
+
+//    for (var i = 0; i < n; i++)
+//    {
+//        for (var j = 0; j < n; j++)
+//        {
+//            macierzU[i, j] = macierz[i, j];
+//        }
+//        macierzL[i, i] = 1;
+//    }
+//    for (var i = 0; i < n; i++)
+//    {
+//        for (var j = 0; j < n; j++)
+//        {
+//            if (j > i)
+//            {
+//                tmp = macierzU[j, i] / macierzU[i, i];
+//                macierzL[j, i] = tmp;
+//                for (var k = 0; k < n; k++)
+//                {
+//                    macierzU[j, k] = macierzU[j, k] - tmp * macierzU[i, k];
+//                }
+//            }
+//        }
+//    }
+//    Console.WriteLine("Macierz wejsciowa:");
+//    Macierz.Wypisz(macierz);
+//    Console.WriteLine("======================");
+//    Console.WriteLine("Macierz U:");
+//    Macierz.Wypisz(macierzU);
+//    Console.WriteLine("======================");
+//    Console.WriteLine("Macierz L:");
+//    Macierz.Wypisz(macierzL);
+//    Console.WriteLine("======================");
+//    Console.WriteLine("Sprawdzenie L X U:");
+//    Macierz.Wypisz(Macierz.Przemnoz(macierzL, macierzU));
+//}

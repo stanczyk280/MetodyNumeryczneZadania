@@ -5,6 +5,7 @@ using MetodaMacierzyOdwrotnej;
 using MetodyNumeryczneZadania;
 using OdwracanieMacierzy;
 using OperacjeMacierzy;
+using RozkladLU;
 using Silnia;
 using Wyznaczniki;
 
@@ -24,7 +25,10 @@ namespace ControlMenu
             Console.WriteLine("7) Metoda Crammera");
             Console.WriteLine("8) Metoda Macierzy Odwrotnej");
             Console.WriteLine("9) Eliminacja Gaussa i Eliminacja Gaussa-Jordana");
-            Console.WriteLine("10) Zakoncz");
+            Console.WriteLine("10) Rozkład LU");
+            Console.WriteLine("11) Rozwiązywanie układu równań za pomocą rozkładu LU");
+            Console.WriteLine("12) Wyznacznik macierzy za pomocą rozkładu LU");
+            Console.WriteLine("13) Zakoncz");
         }
 
         public static bool MainMenu()
@@ -86,6 +90,24 @@ namespace ControlMenu
                     return true;
 
                 case "10":
+                    Console.Clear();
+                    LaunchRozkladLU();
+                    ReturnToMenu();
+                    return true;
+
+                case "11":
+                    Console.Clear();
+                    LaunchRozwiazLU();
+                    ReturnToMenu();
+                    return true;
+
+                case "12":
+                    Console.Clear();
+                    LaunchWyznacznikLU();
+                    ReturnToMenu();
+                    return true;
+
+                case "13":
                     Console.WriteLine("exiting...");
                     return false;
 
@@ -100,6 +122,65 @@ namespace ControlMenu
             Console.ReadLine();
             Console.Clear();
             DisplayMenu();
+        }
+
+        private static void LaunchWyznacznikLU()
+        {
+            double[,] macierz =
+            {
+                { -1, 2, -3, 3, 5 },
+                { 8, 0, 7, 4, -1 },
+                { -3, 4, -3, 2, -2 },
+                { 8, -3, -2, 1, 2 },
+                { -2, -1, -6, 9, 0 }
+            };
+            Console.WriteLine("Macierz: ");
+            Macierz.Wypisz(macierz);
+            Console.WriteLine("Wyznacznik macierzyA= {0:F3}", LU.WyznacznikLU(macierz));
+        }
+
+        private static void LaunchRozkladLU()
+        {
+            double[,] macierz =
+            {
+                { -1, 2, -3, 3, 5 },
+                { 8, 0, 7, 4, -1 },
+                { -3, 4, -3, 2, -2 },
+                { 8, -3, -2, 1, 2 },
+                { -2, -1, -6, 9, 0 }
+            };
+            Console.WriteLine("Macierz: ");
+            Macierz.Wypisz(macierz);
+            Console.WriteLine();
+            Console.WriteLine("Macierz U");
+            Macierz.Wypisz(LU.GetUpper(macierz));
+            Console.WriteLine();
+            Console.WriteLine("Macierz L");
+            Macierz.Wypisz(LU.GetLower(macierz));
+            Console.WriteLine();
+        }
+
+        private static void LaunchRozwiazLU()
+        {
+            double[,] macierzWspl =
+            {
+                { -1, 2, -3, 3, 5 },
+                { 8, 0, 7, 4, -1 },
+                { -3, 4, -3, 2, -2 },
+                { 8, -3, -2, 1, 2 },
+                { -2, -1, -6, 9, 0 }
+            };
+            double[] macierzWyrazowWolnych = { 56, 62, -10, 14, 28 };
+            Console.WriteLine("Macierz wspołczynników: ");
+            Macierz.Wypisz(macierzWspl);
+            Console.WriteLine();
+            Console.WriteLine("Macierz wyrazów wolnych: ");
+            for (var i = 0; i < macierzWyrazowWolnych.Length; i++)
+            {
+                Console.WriteLine(macierzWyrazowWolnych[i]);
+            }
+            Console.WriteLine();
+            LU.RozwiazLU(macierzWspl, macierzWyrazowWolnych);
         }
 
         private static void LaunchMetodaMacierzyOdwrotnej()
