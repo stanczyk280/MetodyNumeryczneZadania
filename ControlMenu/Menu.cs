@@ -112,6 +112,7 @@ namespace ControlMenu
 
         private static void LaunchGaussJordan()
         {
+            Console.WriteLine("Macierz wpsolczynnikow: ");
             double[,] macierzWspl =
             {
                 { -1, 2, -3, 3, 5 },
@@ -120,22 +121,24 @@ namespace ControlMenu
                 { 8, -3, -2, 1, 2 },
                 { -2, -1, -6, 9, 0 }
             };
-            Console.WriteLine("Macierz wpsolczynnikow: ");
-            Macierz.Wypisz(macierzWspl);
             Console.WriteLine();
             Console.WriteLine("Macierz wyrazow wolnych");
             double[] macierzWyrazowWolnych = { 56, 62, -10, 14, 28 };
-            for (var i = 0; i < macierzWyrazowWolnych.Length; i++)
-            {
-                Console.WriteLine(macierzWyrazowWolnych[i]);
-            }
             int n = macierzWspl.GetLength(0);
             Console.WriteLine();
             Console.WriteLine("Eliminacja Gaussa: ");
-            Gauss.RozwiazGauss(macierzWspl, macierzWyrazowWolnych, n);
+            double[] x1 = Gauss.RozwiazGauss(macierzWspl, macierzWyrazowWolnych, n);
+            for (var i = 0; i < x1.Length; i++)
+            {
+                Console.WriteLine("x" + (i + 1) + "= " + x1[i]);
+            }
             Console.WriteLine();
             Console.WriteLine("Eliminacja GaussaJordana");
-            GaussJordan.RozwiazGaussJordan(macierzWspl, macierzWyrazowWolnych, n);
+            double[] x2 = GaussJordan.RozwiazGaussJordan(macierzWspl, macierzWyrazowWolnych, n);
+            for (var i = 0; i < x2.Length; i++)
+            {
+                Console.WriteLine("x" + (i + 1) + "= " + x2[i]);
+            }
         }
 
         private static void LaunchCramer()

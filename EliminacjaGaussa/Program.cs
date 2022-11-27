@@ -1,6 +1,4 @@
-﻿using OperacjeMacierzy;
-
-namespace EliminacjaGaussa
+﻿namespace EliminacjaGaussa
 {
     internal static class Program
     {
@@ -21,10 +19,18 @@ namespace EliminacjaGaussa
             int n = macierzWspl.GetLength(0);
             Console.WriteLine();
             Console.WriteLine("Eliminacja Gaussa: ");
-            Gauss.RozwiazGauss(macierzWspl, macierzWyrazowWolnych, n);
+            double[] x1 = Gauss.RozwiazGauss(macierzWspl, macierzWyrazowWolnych, n);
+            for (var i = 0; i < x1.Length; i++)
+            {
+                Console.WriteLine("x" + (i + 1) + "= " + x1[i]);
+            }
             Console.WriteLine();
             Console.WriteLine("Eliminacja GaussaJordana");
-            GaussJordan.RozwiazGaussJordan(macierzWspl, macierzWyrazowWolnych, n);
+            double[] x2 = GaussJordan.RozwiazGaussJordan(macierzWspl, macierzWyrazowWolnych, n);
+            for (var i = 0; i < x2.Length; i++)
+            {
+                Console.WriteLine("x" + (i + 1) + "= " + x2[i]);
+            }
         }
     }
 }

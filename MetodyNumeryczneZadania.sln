@@ -5,25 +5,27 @@ VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MetodyNumeryczneZadania", "MetodyNumeryczneZadania\MetodyNumeryczneZadania.csproj", "{C3D30DEA-3568-4A20-8729-71081B414313}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiczbyZespolone", "LiczbyZespolone\LiczbyZespolone.csproj", "{FFFE3FF0-80FA-4A07-AA23-30EB4A9352EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LiczbyZespolone", "LiczbyZespolone\LiczbyZespolone.csproj", "{FFFE3FF0-80FA-4A07-AA23-30EB4A9352EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Silnia", "Silnia\Silnia.csproj", "{7BCC7D69-29F4-4CF9-A9D1-D5DFED33FCD7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Silnia", "Silnia\Silnia.csproj", "{7BCC7D69-29F4-4CF9-A9D1-D5DFED33FCD7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logarytm_e", "Logarytm_e\Logarytm_e.csproj", "{29DA0AED-F2C7-46DB-9C63-8014BBF86D0F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Logarytm_e", "Logarytm_e\Logarytm_e.csproj", "{29DA0AED-F2C7-46DB-9C63-8014BBF86D0F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OperacjeMacierzy", "MnozenieMacierzy\OperacjeMacierzy.csproj", "{64E67221-B8A7-4E21-841B-8F2778C9B9EC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OperacjeMacierzy", "MnozenieMacierzy\OperacjeMacierzy.csproj", "{64E67221-B8A7-4E21-841B-8F2778C9B9EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wyznaczniki", "Wyznaczniki\Wyznaczniki.csproj", "{5553C765-4858-4CF8-8222-627A42C073EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wyznaczniki", "Wyznaczniki\Wyznaczniki.csproj", "{5553C765-4858-4CF8-8222-627A42C073EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetodaCramera", "MetodaCramera\MetodaCramera.csproj", "{DEA9DFDC-72B4-4258-8F3A-C8352613FFBE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MetodaCramera", "MetodaCramera\MetodaCramera.csproj", "{DEA9DFDC-72B4-4258-8F3A-C8352613FFBE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OdwracanieMacierzy", "OdwracanieMacierzy\OdwracanieMacierzy.csproj", "{E327BABC-2B3A-4573-911C-11B2E173FC7A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OdwracanieMacierzy", "OdwracanieMacierzy\OdwracanieMacierzy.csproj", "{E327BABC-2B3A-4573-911C-11B2E173FC7A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControlMenu", "ControlMenu\ControlMenu.csproj", "{2A3B5FEA-E875-4B2D-BD23-469B55191D02}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ControlMenu", "ControlMenu\ControlMenu.csproj", "{2A3B5FEA-E875-4B2D-BD23-469B55191D02}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetodaMacierzyOdwrotnej", "MetodaMacierzyOdwrotnej\MetodaMacierzyOdwrotnej.csproj", "{A6857BEB-EE7E-4B9F-A600-C59FE18AE49C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MetodaMacierzyOdwrotnej", "MetodaMacierzyOdwrotnej\MetodaMacierzyOdwrotnej.csproj", "{A6857BEB-EE7E-4B9F-A600-C59FE18AE49C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EliminacjaGaussa", "EliminacjaGaussa\EliminacjaGaussa.csproj", "{ADF70BD7-85E0-415B-B773-7D25B5FDCA04}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EliminacjaGaussa", "EliminacjaGaussa\EliminacjaGaussa.csproj", "{ADF70BD7-85E0-415B-B773-7D25B5FDCA04}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RozkladLU", "RozkladLU\RozkladLU.csproj", "{E7B3B4AD-3EBE-4752-8679-A839BC5FE365}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +77,10 @@ Global
 		{ADF70BD7-85E0-415B-B773-7D25B5FDCA04}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ADF70BD7-85E0-415B-B773-7D25B5FDCA04}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ADF70BD7-85E0-415B-B773-7D25B5FDCA04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7B3B4AD-3EBE-4752-8679-A839BC5FE365}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7B3B4AD-3EBE-4752-8679-A839BC5FE365}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7B3B4AD-3EBE-4752-8679-A839BC5FE365}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7B3B4AD-3EBE-4752-8679-A839BC5FE365}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

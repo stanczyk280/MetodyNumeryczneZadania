@@ -4,7 +4,7 @@ namespace EliminacjaGaussa
 {
     public static class Gauss
     {
-        public static void RozwiazGauss(double[,] macierzWspl, double[] macierzWyrazowWolnych, int n)
+        public static double[] RozwiazGauss(double[,] macierzWspl, double[] macierzWyrazowWolnych, int n)
         {
             double[] x = new double[n];
 
@@ -43,10 +43,12 @@ namespace EliminacjaGaussa
                 x[k] = (tmpMacierzWspl[k, n] - tmp) / tmpMacierzWspl[k, k];
             }
 
-            for (var i = 0; i < x.Length; i++)
-            {
-                Console.WriteLine("x" + (i + 1) + "= " + Math.Round(x[i]));
-            }
+            return x;
+
+            //for (var i = 0; i < x.Length; i++)
+            //{
+            //    Console.WriteLine("x" + (i + 1) + "= " + Math.Round(x[i]));
+            //}
         }
     }
 }

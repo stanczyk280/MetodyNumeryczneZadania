@@ -8,7 +8,7 @@ namespace EliminacjaGaussa
 {
     public static class GaussJordan
     {
-        public static void RozwiazGaussJordan(double[,] macierzWspl, double[] macierzWyrazowWolnych, int n)
+        public static double[] RozwiazGaussJordan(double[,] macierzWspl, double[] macierzWyrazowWolnych, int n)
         {
             double[] x = new double[n];
             double[,] tmpA = new double[n, n + 1];
@@ -49,10 +49,11 @@ namespace EliminacjaGaussa
                 x[i] = tmpA[i, n];
             }
 
-            for (var i = 0; i < x.Length; i++)
-            {
-                Console.WriteLine("x" + (i + 1) + "= " + Math.Round(x[i]));
-            }
+            return x;
+            //for (var i = 0; i < x.Length; i++)
+            //{
+            //    Console.WriteLine("x" + (i + 1) + "= " + Math.Round(x[i]));
+            //}
         }
     }
 }
