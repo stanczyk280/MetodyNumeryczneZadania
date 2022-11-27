@@ -40,8 +40,7 @@ namespace OdwracanieMacierzy
             int counter = 1;
             if (detA == 0)
             {
-                Console.WriteLine("Macierz jest osobliwa, wiec nie istnieje jej macierz odwrotna");
-                return null;
+                throw new ArgumentException("Macierz jest osobliwa, wiec nie istnieje jej macierz odwrotna");
             }
 
             for (var i = 0; i < macierzA.GetLength(0); i++)

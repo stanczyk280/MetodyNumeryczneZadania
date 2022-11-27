@@ -32,7 +32,9 @@ namespace EliminacjaGaussa
                     }
                 }
             }
-
+            Console.WriteLine("=================");
+            Macierz.Wypisz(tmpMacierzWspl);
+            Console.WriteLine("=================");
             for (int k = n - 1; k >= 0; k--)
             {
                 tmp = 0;
