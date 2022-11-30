@@ -5,6 +5,7 @@ using MetodaMacierzyOdwrotnej;
 using MetodyNumeryczneZadania;
 using OdwracanieMacierzy;
 using OperacjeMacierzy;
+using Pivotting;
 using RozkladLU;
 using Silnia;
 using Wyznaczniki;
@@ -25,10 +26,11 @@ namespace ControlMenu
             Console.WriteLine("7) Metoda Crammera");
             Console.WriteLine("8) Metoda Macierzy Odwrotnej");
             Console.WriteLine("9) Eliminacja Gaussa i Eliminacja Gaussa-Jordana");
-            Console.WriteLine("10) Rozkład LU");
-            Console.WriteLine("11) Rozwiązywanie układu równań za pomocą rozkładu LU");
-            Console.WriteLine("12) Wyznacznik macierzy za pomocą rozkładu LU");
-            Console.WriteLine("13) Zakoncz");
+            Console.WriteLine("10) Pivotting w eliminacji gaussa");
+            Console.WriteLine("11) Rozkład LU");
+            Console.WriteLine("12) Rozwiązywanie układu równań za pomocą rozkładu LU");
+            Console.WriteLine("13) Wyznacznik macierzy za pomocą rozkładu LU");
+            Console.WriteLine("14) Zakoncz");
         }
 
         public static bool MainMenu()
@@ -91,23 +93,29 @@ namespace ControlMenu
 
                 case "10":
                     Console.Clear();
-                    LaunchRozkladLU();
+                    LaunchPivotGauss();
                     ReturnToMenu();
                     return true;
 
                 case "11":
                     Console.Clear();
-                    LaunchRozwiazLU();
+                    LaunchRozkladLU();
                     ReturnToMenu();
                     return true;
 
                 case "12":
                     Console.Clear();
-                    LaunchWyznacznikLU();
+                    LaunchRozwiazLU();
                     ReturnToMenu();
                     return true;
 
                 case "13":
+                    Console.Clear();
+                    LaunchWyznacznikLU();
+                    ReturnToMenu();
+                    return true;
+
+                case "14":
                     Console.WriteLine("exiting...");
                     return false;
 
@@ -122,6 +130,25 @@ namespace ControlMenu
             Console.ReadLine();
             Console.Clear();
             DisplayMenu();
+        }
+
+        private static void LaunchPivotGauss()
+        {
+            double[,] macierzWspl =
+            {
+                { -1, 2, -3, 3, 5 },
+                { 8, 0, 7, 4, -1 },
+                { -3, 4, -3, 2, -2 },
+                { 8, -3, -2, 1, 2 },
+                { -2, -1, -6, 9, 0 }
+            };
+            double[] macierzWyrazowWolnych = { 56, 62, -10, 14, 28 };
+
+            double[] x1 = Pivot.PivotMacierzGauss(macierzWspl, macierzWyrazowWolnych);
+            for (var i = 0; i < x1.Length; i++)
+            {
+                Console.WriteLine("x" + (i + 1) + "= " + x1[i]);
+            }
         }
 
         private static void LaunchWyznacznikLU()

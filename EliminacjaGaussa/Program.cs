@@ -33,6 +33,8 @@ namespace EliminacjaGaussa
             {
                 Console.WriteLine("x" + (i + 1) + "= " + x2[i]);
             }
+            Console.WriteLine();
+            Macierz.Wypisz(Gauss.OdwrocMacierzGauss(macierzWspl));
         }
     }
 }

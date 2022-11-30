@@ -25,7 +25,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MetodaMacierzyOdwrotnej", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EliminacjaGaussa", "EliminacjaGaussa\EliminacjaGaussa.csproj", "{ADF70BD7-85E0-415B-B773-7D25B5FDCA04}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RozkladLU", "RozkladLU\RozkladLU.csproj", "{E7B3B4AD-3EBE-4752-8679-A839BC5FE365}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RozkladLU", "RozkladLU\RozkladLU.csproj", "{E7B3B4AD-3EBE-4752-8679-A839BC5FE365}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pivotting", "Pivotting\Pivotting.csproj", "{115FECEC-2668-4771-9556-B4C99EBC6985}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +83,10 @@ Global
 		{E7B3B4AD-3EBE-4752-8679-A839BC5FE365}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E7B3B4AD-3EBE-4752-8679-A839BC5FE365}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E7B3B4AD-3EBE-4752-8679-A839BC5FE365}.Release|Any CPU.Build.0 = Release|Any CPU
+		{115FECEC-2668-4771-9556-B4C99EBC6985}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{115FECEC-2668-4771-9556-B4C99EBC6985}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{115FECEC-2668-4771-9556-B4C99EBC6985}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{115FECEC-2668-4771-9556-B4C99EBC6985}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

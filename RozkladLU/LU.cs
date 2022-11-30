@@ -140,6 +140,40 @@ namespace RozkladLU
             return x;
         }
 
+        public static double[,] OdwrocMacierzLU(double[,] macierz)
+        {
+            if (macierz.GetLength(0) != macierz.GetLength(1))
+            {
+                throw new ArgumentException("Macierz nie jest kwadratowa");
+            }
+
+            int n = macierz.GetLength(0);
+            double[,] L = GetLower(macierz);
+            double[,] U = GetUpper(macierz);
+            double[] wektor = new double[n];
+            double[,] gora = new double[n, n];
+            double[,] dol = new double[n, n];
+            double[] tmpL;
+            double[] tmpU;
+
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    wektor[j] = 0;
+                }
+                wektor[i] = 1;
+                tmpL = RozwiazMacierzL(L, wektor);
+                tmpU = RozwiazMacierzU(U, wektor);
+                for (int j = 0; j < n; j++)
+                {
+                    gora[i, j] = tmpL[j];
+                    dol[i, j] = tmpU[j];
+                }
+            }
+            return Macierz.Przemnoz(gora, dol);
+        }
+
         public static double WyznacznikLU(double[,] macierz)
         {
             double[,] macierzU = GetUpper(macierz);
@@ -174,6 +208,9 @@ namespace RozkladLU
             Console.WriteLine("Wyznacznik macierzyA= " + LU.WyznacznikLU(macierz));
 
             LU.RozwiazLU(macierzWspl, macierzWyrazowWolnych);
+
+            Console.WriteLine();
+            Macierz.Wypisz(LU.OdwrocMacierzLU(macierz));
         }
     }
 }

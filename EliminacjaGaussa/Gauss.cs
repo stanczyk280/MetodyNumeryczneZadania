@@ -52,5 +52,34 @@ namespace EliminacjaGaussa
             //    Console.WriteLine("x" + (i + 1) + "= " + Math.Round(x[i]));
             //}
         }
+
+        public static double[,] OdwrocMacierzGauss(double[,] macierz)
+        {
+            if (macierz.GetLength(0) != macierz.GetLength(1))
+            {
+                throw new ArgumentException("Macierz nie jest kwadratowa");
+            }
+
+            int n = macierz.GetLength(0);
+
+            double[,] macierzOdwrotna = new double[n, n];
+            double[] wektor = new double[n];
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    if (j == i)
+                        wektor[j] = 1;
+                    else
+                        wektor[j] = 0;
+                }
+                double[] tmp = RozwiazGauss(macierz, wektor, n);
+                for (int j = 0; j < n; j++)
+                {
+                    macierzOdwrotna[j, i] = tmp[j];
+                }
+            }
+            return macierzOdwrotna;
+        }
     }
 }
