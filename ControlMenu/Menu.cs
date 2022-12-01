@@ -26,11 +26,13 @@ namespace ControlMenu
             Console.WriteLine("7) Metoda Crammera");
             Console.WriteLine("8) Metoda Macierzy Odwrotnej");
             Console.WriteLine("9) Eliminacja Gaussa i Eliminacja Gaussa-Jordana");
-            Console.WriteLine("10) Pivotting w eliminacji gaussa");
-            Console.WriteLine("11) Rozkład LU");
-            Console.WriteLine("12) Rozwiązywanie układu równań za pomocą rozkładu LU");
-            Console.WriteLine("13) Wyznacznik macierzy za pomocą rozkładu LU");
-            Console.WriteLine("14) Zakoncz");
+            Console.WriteLine("10) Odwróć macierz za pomocą eliminacji gaussa");
+            Console.WriteLine("11) Pivotting w eliminacji gaussa");
+            Console.WriteLine("12) Rozkład LU");
+            Console.WriteLine("13) Rozwiązywanie układu równań za pomocą rozkładu LU");
+            Console.WriteLine("14) Odwróć macierz za pomocą rozkładu LU");
+            Console.WriteLine("15) Wyznacznik macierzy za pomocą rozkładu LU");
+            Console.WriteLine("16) Zakoncz");
         }
 
         public static bool MainMenu()
@@ -93,35 +95,75 @@ namespace ControlMenu
 
                 case "10":
                     Console.Clear();
-                    LaunchPivotGauss();
+                    LaunchOdwrocMacierzGauss();
                     ReturnToMenu();
                     return true;
 
                 case "11":
                     Console.Clear();
-                    LaunchRozkladLU();
+                    LaunchPivotGauss();
                     ReturnToMenu();
                     return true;
 
                 case "12":
                     Console.Clear();
-                    LaunchRozwiazLU();
+                    LaunchRozkladLU();
                     ReturnToMenu();
                     return true;
 
                 case "13":
                     Console.Clear();
-                    LaunchWyznacznikLU();
+                    LaunchRozwiazLU();
                     ReturnToMenu();
                     return true;
 
                 case "14":
+                    Console.Clear();
+                    LaunchOdwrocMacierzLU();
+                    ReturnToMenu();
+                    return true;
+
+                case "15":
+                    Console.Clear();
+                    LaunchWyznacznikLU();
+                    ReturnToMenu();
+                    return true;
+
+                case "16":
                     Console.WriteLine("exiting...");
                     return false;
 
                 default:
                     return true;
             }
+        }
+
+        private static void LaunchOdwrocMacierzGauss()
+        {
+            double[,] macierz =
+            {
+                { -1, 2, -3, 3, 5 },
+                { 8, 0, 7, 4, -1 },
+                { -3, 4, -3, 2, -2 },
+                { 8, -3, -2, 1, 2 },
+                { -2, -1, -6, 9, 0 }
+            };
+            Macierz.Wypisz(Gauss.OdwrocMacierzGauss(macierz));
+        }
+
+        private static void LaunchOdwrocMacierzLU()
+        {
+            double[,] macierz =
+            {
+                { -1, 2, -3, 3, 5 },
+                { 8, 0, 7, 4, -1 },
+                { -3, 4, -3, 2, -2 },
+                { 8, -3, -2, 1, 2 },
+                { -2, -1, -6, 9, 0 }
+            };
+
+            Console.WriteLine();
+            Macierz.Wypisz(LU.OdwrocMacierzLU(macierz));
         }
 
         private static void ReturnToMenu()
