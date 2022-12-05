@@ -76,15 +76,21 @@ namespace Interpolacja
             //chyba baza 1 jest zle skonstruowana
             double[] wynik1 = MetodyInterpolacji.Interpolacja(macierzBaza1, wektor);
             double[] wynik2 = MetodyInterpolacji.Interpolacja(macierzBaza2, wektor);
-            for (var i = 0; i < wynik2.Length; i++)
-            {
-                Console.WriteLine(wynik2[i]);
-            }
-            Console.WriteLine();
+            Console.WriteLine("Baza: [1, x, cosx, sinx]");
+            Console.Write("[ ");
             for (var i = 0; i < wynik1.Length; i++)
             {
-                Console.WriteLine(wynik1[i]);
+                Console.Write("{0:F5}" + " ", wynik1[i]);
             }
+            Console.Write("]");
+            Console.WriteLine("\n");
+            Console.WriteLine("Baza: [1,x,cosx,sinx]");
+            Console.Write("[ ");
+            for (var i = 0; i < wynik2.Length; i++)
+            {
+                Console.Write("{0:F5}"+" ",wynik2[i]);
+            }
+            Console.Write("]");
         }
     }
 }
