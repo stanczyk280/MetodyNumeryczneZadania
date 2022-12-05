@@ -71,7 +71,7 @@ namespace Interpolacja
             //[1,x,x^2,x^3]
             double[,] macierzBaza2 = { { 1, 0, 0, 0 }, { 1, 1.5, 2.25, 3.375 }, { 1, 3, 9, 27 }, { 1, 4, 16, 64 } };
             //[1,x,cosx,sinx]
-            double[,] macierzBaza1 = { { 1, 0, 1, 0 }, { 1, 1.5, 0.99965732, 0.02617695 }, { 1, 3, 0.99862953, 0.05233596 }, { 1, 4, 0.99756405, 0.06975647 } };
+            double[,] macierzBaza1 = { { 1, 0, 1, 0 }, { 1, 1.5, 0.0707372016677029, 0.9974949866040544 }, { 1, 3, -0.9899924966004454, 0.1411200080598672 }, { 1, 4, -0.6536436208636119, -0.7568024953079282 } };
             double[] wektor = { 2, 3, 1, 3 };
             //chyba baza 1 jest zle skonstruowana
             double[] wynik1 = MetodyInterpolacji.Interpolacja(macierzBaza1, wektor);
