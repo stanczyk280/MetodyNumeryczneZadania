@@ -17,4 +17,10 @@
 | LU decomposition  | Done  |
 | Inverse Matrix using LU  | Done  |
 | Determinant using LU  | Done  |
-| Interpolation  | Done  |
+| Derivative | Done  |
+| Two-point ordinary differences  | Done  |
+| Two-point central differences  | Done  |
+| Three-point ordinary differences | Done  |
+| Three-point ordinary differences for second derivative  | Done  |
+| Three-point central differences for second derivative  | Done  |
+
