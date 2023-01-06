@@ -29,9 +29,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RozkladLU", "RozkladLU\Rozk
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pivotting", "Pivotting\Pivotting.csproj", "{115FECEC-2668-4771-9556-B4C99EBC6985}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interpolacja", "Interpolacja\Interpolacja.csproj", "{4D0EBFB9-25C8-45F0-B0CF-C42867B91FF6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interpolacja", "Interpolacja\Interpolacja.csproj", "{4D0EBFB9-25C8-45F0-B0CF-C42867B91FF6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pochodne", "Pochodne\Pochodne.csproj", "{D40976AA-E4BF-4FEA-8BE8-523E24828D01}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pochodne", "Pochodne\Pochodne.csproj", "{D40976AA-E4BF-4FEA-8BE8-523E24828D01}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calki", "Calki\Calki.csproj", "{7A2593A6-8974-448C-881D-1475D44A15C3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -99,6 +101,10 @@ Global
 		{D40976AA-E4BF-4FEA-8BE8-523E24828D01}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D40976AA-E4BF-4FEA-8BE8-523E24828D01}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D40976AA-E4BF-4FEA-8BE8-523E24828D01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A2593A6-8974-448C-881D-1475D44A15C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A2593A6-8974-448C-881D-1475D44A15C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A2593A6-8974-448C-881D-1475D44A15C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A2593A6-8974-448C-881D-1475D44A15C3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
