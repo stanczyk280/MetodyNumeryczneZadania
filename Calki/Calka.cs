@@ -79,13 +79,25 @@ namespace Calki
             return sum;
         }
 
-        public static double GetDoubleRandom(double xa, double xb)
+        public static double MetodaGaussaLegrande(OneArgFunc Func, double xa, double xb,int n ,double[] waga, double[] wezly)
         {
-            var random = new Random();
-            var doubleRandom = random.NextDouble();
-            var rangeDoubleRandom = doubleRandom * (xb - xa) + xa;
-            return rangeDoubleRandom;
+            double przedzial = xb - xa;
+            double h = przedzial / 2;
+            double sum = 0;
+            for(var i=0; i<n; i++)
+            {
+                sum += waga[i] * Func(((xb - xa) / 2 * wezly[i]) + ((xb + xa) / 2));
+            }
+            return sum * h;
         }
+
+        //public static double GetDoubleRandom(double xa, double xb)
+        //{
+        //    var random = new Random();
+        //    var doubleRandom = random.NextDouble();
+        //    var rangeDoubleRandom = doubleRandom * (xb - xa) + xa;
+        //    return rangeDoubleRandom;
+        //}
 
         public static double MetodaStohastyczna(OneArgFunc Func, double xa, double xb, int n)
         {
@@ -95,10 +107,23 @@ namespace Calki
             double sum = 0;
             for (var i = 1; i <= n; i++)
             {
-                sum += Func(GetDoubleRandom(xa, xb));
+                //Console.WriteLine(rnd.NextDouble(xa,xb));
+                sum += Func(rnd.NextDouble(xa,xb));
             }
             sum = h * sum;
             return sum;
+        }
+    }
+
+    public static class RandomExtensions
+    {
+        public static double NextDouble(
+            this Random random,
+            double minValue,
+            double maxValue
+            )
+        {
+            return random.NextDouble() * (maxValue - minValue) + minValue;
         }
     }
 
@@ -106,7 +131,11 @@ namespace Calki
     {
         private static void Main(string[] args)
         {
-            int dokladnosc = 1000;
+            int dokladnosc = 10;
+            int n=3;
+            int N=5;
+            double[] wagi = {5.0/9.0, 8.0/9.0, 5.0/9.0 };
+            double[] wezly = { -0.774596669, 0.0, 0.774596669 };
             Console.WriteLine("Dokladnosc calkowania: " + dokladnosc);
             Console.WriteLine("===============================================================");
             Console.WriteLine("Metoda prostokatow:");
@@ -172,8 +201,14 @@ namespace Calki
             Console.WriteLine();
             Console.WriteLine("===============================================================");
             Console.WriteLine();
+            Console.WriteLine("Metoda gl:");
+            Console.WriteLine(Calka.MetodaGaussaLegrande(Funkcje.Custom5, 0,1,n,wagi,wezly));
+            Console.WriteLine();
+            Console.WriteLine("===============================================================");
+            Console.WriteLine();
             Console.WriteLine("Metoda stohastyczna:");
             Console.WriteLine(Calka.MetodaStohastyczna(Funkcje.Custom3, -1, 1, dokladnosc));
+            Console.Read();
         }
     }
 }
