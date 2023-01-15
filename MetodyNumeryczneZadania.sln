@@ -33,7 +33,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interpolacja", "Interpolacj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pochodne", "Pochodne\Pochodne.csproj", "{D40976AA-E4BF-4FEA-8BE8-523E24828D01}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calki", "Calki\Calki.csproj", "{7A2593A6-8974-448C-881D-1475D44A15C3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Calki", "Calki\Calki.csproj", "{7A2593A6-8974-448C-881D-1475D44A15C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TlumienieSprezyny", "TlumienieSprezyny\TlumienieSprezyny.csproj", "{A1D2FCBF-80CD-49FA-A170-75D208F8AC06}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -105,6 +107,10 @@ Global
 		{7A2593A6-8974-448C-881D-1475D44A15C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A2593A6-8974-448C-881D-1475D44A15C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7A2593A6-8974-448C-881D-1475D44A15C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1D2FCBF-80CD-49FA-A170-75D208F8AC06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1D2FCBF-80CD-49FA-A170-75D208F8AC06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1D2FCBF-80CD-49FA-A170-75D208F8AC06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1D2FCBF-80CD-49FA-A170-75D208F8AC06}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
