@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -79,14 +80,36 @@ namespace Calki
             return sum;
         }
 
-        public static double MetodaGaussaLegrande(OneArgFunc Func, double xa, double xb,int n ,double[] waga, double[] wezly)
+        public static double MetodaGaussaLegrande(OneArgFunc Func, double xa, double xb, int n, double[] waga, double[] wezly)
         {
             double przedzial = xb - xa;
             double h = przedzial / 2;
             double sum = 0;
-            for(var i=0; i<n; i++)
+            for (var i = 0; i < n; i++)
             {
                 sum += waga[i] * Func(((xb - xa) / 2 * wezly[i]) + ((xb + xa) / 2));
+            }
+            return sum * h;
+        }
+
+        public static double MetodaGaussaZlozona(OneArgFunc Func, double xa, double xb, int n, int N, double[] waga, double[] wezly)
+        {
+            double przedzial = xb - xa;
+            double h = przedzial / 2 * N;
+            double x1 = 0;
+            double x2 = 0;
+            double xik = 0;
+            double sum = 0;
+
+            for (var k = 1; k <= N; k++)
+            {
+                for (var i = 0; i <= n; i++)
+                {
+                    x1 = (wezly[k] + wezly[k + 1]) / 2;
+                    x2 = (wezly[k + 1] - wezly[k]) / 2;
+                    xik = x1 + x2 * wezly[i];
+                    sum += waga[i] * Func(xik);
+                }
             }
             return sum * h;
         }
@@ -108,7 +131,7 @@ namespace Calki
             for (var i = 1; i <= n; i++)
             {
                 //Console.WriteLine(rnd.NextDouble(xa,xb));
-                sum += Func(rnd.NextDouble(xa,xb));
+                sum += Func(rnd.NextDouble(xa, xb));
             }
             sum = h * sum;
             return sum;
@@ -131,10 +154,10 @@ namespace Calki
     {
         private static void Main(string[] args)
         {
-            int dokladnosc = 10;
-            int n=3;
-            int N=5;
-            double[] wagi = {5.0/9.0, 8.0/9.0, 5.0/9.0 };
+            int dokladnosc = 1000;
+            int n = 3;
+            int N = 5;
+            double[] wagi = { 5.0 / 9.0, 8.0 / 9.0, 5.0 / 9.0 };
             double[] wezly = { -0.774596669, 0.0, 0.774596669 };
             Console.WriteLine("Dokladnosc calkowania: " + dokladnosc);
             Console.WriteLine("===============================================================");
@@ -202,12 +225,14 @@ namespace Calki
             Console.WriteLine("===============================================================");
             Console.WriteLine();
             Console.WriteLine("Metoda gl:");
-            Console.WriteLine(Calka.MetodaGaussaLegrande(Funkcje.Custom5, 0,1,n,wagi,wezly));
+            Console.WriteLine(Calka.MetodaGaussaLegrande(Funkcje.Custom5, 0, 1, n, wagi, wezly));
+            Console.WriteLine(Calka.MetodaGaussaZlozona(Funkcje.Custom5, 0, 1, n, N, wagi, wezly));
             Console.WriteLine();
             Console.WriteLine("===============================================================");
             Console.WriteLine();
             Console.WriteLine("Metoda stohastyczna:");
             Console.WriteLine(Calka.MetodaStohastyczna(Funkcje.Custom3, -1, 1, dokladnosc));
+
             Console.Read();
         }
     }
