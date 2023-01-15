@@ -76,6 +76,7 @@ namespace TlumienieSprezyny
             {
                 Console.WriteLine(wynik);
             }
+            File.WriteAllLines("C:\\Users\\barte\\Desktop\\eulerwyniki.txt", wyniki);
 
             #region plotting
 
@@ -143,6 +144,7 @@ namespace TlumienieSprezyny
             {
                 Console.WriteLine(wynik);
             }
+            File.WriteAllLines("C:\\Users\\barte\\Desktop\\rk4wyniki.txt", wyniki);
 
             #region plotting
 
