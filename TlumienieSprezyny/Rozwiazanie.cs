@@ -25,7 +25,7 @@ namespace TlumienieSprezyny
             plt.XAxis.TickLabelStyle(fontSize: 15);
             plt.SetAxisLimits(xMin, xMax, yMin, yMax);
 
-            plt.SaveFig("C:\\Users\\UMK\\Desktop\\" + file + ".png");
+            plt.SaveFig("C:\\Users\\barte\\Desktop\\zadaniemenu\\" + file + ".png");
         }
 
         public static void DoublePlot(List<double> x, List<double> y, List<double> z, List<double> w, string title, string yaxis, string xaxis, double xMin, double xMax, double yMin, double yMax, string file)
@@ -57,7 +57,7 @@ namespace TlumienieSprezyny
             plt.SetAxisLimits(xMin, xMax, yMin, yMax);
             plt.Legend();
 
-            plt.SaveFig("C:\\Users\\UMK\\Desktop\\" + file + ".png");
+            plt.SaveFig("C:\\Users\\barte\\Desktop\\zadaniemenu\\" + file + ".png");
         }
     }
 
@@ -190,7 +190,7 @@ namespace TlumienieSprezyny
             {
                 Console.WriteLine(wynik);
             }
-            File.WriteAllLines("C:\\Users\\UMK\\Desktop\\eulerwyniki.txt", wyniki);
+            File.WriteAllLines("C:\\Users\\barte\\Desktop\\zadaniemenu\\eulerwyniki.txt", wyniki);
 
             #region plotting
 
@@ -258,7 +258,7 @@ namespace TlumienieSprezyny
             {
                 Console.WriteLine(wynik);
             }
-            File.WriteAllLines("C:\\Users\\UMK\\Desktop\\rk4wyniki.txt", wyniki);
+            File.WriteAllLines("C:\\Users\\barte\\Desktop\\zadaniemenu\\rk4wyniki.txt", wyniki);
 
             #region plotting
 

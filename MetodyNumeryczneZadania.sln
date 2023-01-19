@@ -20,6 +20,13 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OdwracanieMacierzy", "OdwracanieMacierzy\OdwracanieMacierzy.csproj", "{E327BABC-2B3A-4573-911C-11B2E173FC7A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ControlMenu", "ControlMenu\ControlMenu.csproj", "{2A3B5FEA-E875-4B2D-BD23-469B55191D02}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4276D979-68D8-4782-8279-B2F431E6F1A8} = {4276D979-68D8-4782-8279-B2F431E6F1A8}
+		{4D0EBFB9-25C8-45F0-B0CF-C42867B91FF6} = {4D0EBFB9-25C8-45F0-B0CF-C42867B91FF6}
+		{7A2593A6-8974-448C-881D-1475D44A15C3} = {7A2593A6-8974-448C-881D-1475D44A15C3}
+		{A1D2FCBF-80CD-49FA-A170-75D208F8AC06} = {A1D2FCBF-80CD-49FA-A170-75D208F8AC06}
+		{D40976AA-E4BF-4FEA-8BE8-523E24828D01} = {D40976AA-E4BF-4FEA-8BE8-523E24828D01}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MetodaMacierzyOdwrotnej", "MetodaMacierzyOdwrotnej\MetodaMacierzyOdwrotnej.csproj", "{A6857BEB-EE7E-4B9F-A600-C59FE18AE49C}"
 EndProject
@@ -35,7 +42,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pochodne", "Pochodne\Pochod
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Calki", "Calki\Calki.csproj", "{7A2593A6-8974-448C-881D-1475D44A15C3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TlumienieSprezyny", "TlumienieSprezyny\TlumienieSprezyny.csproj", "{A1D2FCBF-80CD-49FA-A170-75D208F8AC06}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TlumienieSprezyny", "TlumienieSprezyny\TlumienieSprezyny.csproj", "{A1D2FCBF-80CD-49FA-A170-75D208F8AC06}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RownaniaNieliniowe", "RownaniaNieliniowe\RownaniaNieliniowe.csproj", "{4276D979-68D8-4782-8279-B2F431E6F1A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rozniczki", "Rozniczki\Rozniczki.csproj", "{50EF7208-876E-4452-B099-650D7C9D180F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestyJednostkowe", "TestyJednostkowe\TestyJednostkowe.csproj", "{63723C13-3468-447B-9C21-8183554F280D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RownaniaRozniczkowe", "RownaniaRozniczkowe\RownaniaRozniczkowe.csproj", "{C62C691D-A43C-497F-9C39-1C866B6223FC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -111,6 +126,22 @@ Global
 		{A1D2FCBF-80CD-49FA-A170-75D208F8AC06}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A1D2FCBF-80CD-49FA-A170-75D208F8AC06}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A1D2FCBF-80CD-49FA-A170-75D208F8AC06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4276D979-68D8-4782-8279-B2F431E6F1A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4276D979-68D8-4782-8279-B2F431E6F1A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4276D979-68D8-4782-8279-B2F431E6F1A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4276D979-68D8-4782-8279-B2F431E6F1A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50EF7208-876E-4452-B099-650D7C9D180F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50EF7208-876E-4452-B099-650D7C9D180F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50EF7208-876E-4452-B099-650D7C9D180F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50EF7208-876E-4452-B099-650D7C9D180F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63723C13-3468-447B-9C21-8183554F280D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63723C13-3468-447B-9C21-8183554F280D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63723C13-3468-447B-9C21-8183554F280D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63723C13-3468-447B-9C21-8183554F280D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C62C691D-A43C-497F-9C39-1C866B6223FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C62C691D-A43C-497F-9C39-1C866B6223FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C62C691D-A43C-497F-9C39-1C866B6223FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C62C691D-A43C-497F-9C39-1C866B6223FC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

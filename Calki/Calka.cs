@@ -94,24 +94,23 @@ namespace Calki
 
         public static double MetodaGaussaZlozona(OneArgFunc Func, double xa, double xb, int n, int N, double[] waga, double[] wezly)
         {
-            double przedzial = xb - xa;
-            double h = przedzial / 2 * N;
-            double x1 = 0;
-            double x2 = 0;
-            double xik = 0;
+            double h = (xb - xa) / N;
             double sum = 0;
-
-            for (var k = 1; k <= N; k++)
+            double ai = 0;
+            double bi = 0;
+            double si = 0;
+            for (var k = 0; k < N; k++)
             {
-                for (var i = 0; i <= n; i++)
+                ai = xa + k * h;
+                bi = xa + (k + 1) * h;
+                si = 0;
+                for (var i = 0; i < n; i++)
                 {
-                    x1 = (wezly[k] + wezly[k + 1]) / 2;
-                    x2 = (wezly[k + 1] - wezly[k]) / 2;
-                    xik = x1 + x2 * wezly[i];
-                    sum += waga[i] * Func(xik);
+                    si += waga[i] * Func((h / 2) * wezly[i] + ((ai + bi) / 2));
                 }
+                sum += (h / 2) * si;
             }
-            return sum * h;
+            return sum;
         }
 
         //public static double GetDoubleRandom(double xa, double xb)
@@ -155,10 +154,12 @@ namespace Calki
         private static void Main(string[] args)
         {
             int dokladnosc = 1000;
-            int n = 3;
-            int N = 5;
-            double[] wagi = { 5.0 / 9.0, 8.0 / 9.0, 5.0 / 9.0 };
-            double[] wezly = { -0.774596669, 0.0, 0.774596669 };
+            double[] wagi2 = { 1.0, 1.0 };
+            double[] wezly2 = { -0.577350269, 0.577350269 };
+            double[] wagi3 = { 5.0 / 9.0, 8.0 / 9.0, 5.0 / 9.0 };
+            double[] wezly3 = { -0.774596669, 0.0, 0.774596669 };
+            double[] wagi4 = { 0.347854845, 0.652145155, 0.652145155, 0.347854845 };
+            double[] wezly4 = { -0.861136312, -0.339981044, 0.339981044, 0.861136312 };
             Console.WriteLine("Dokladnosc calkowania: " + dokladnosc);
             Console.WriteLine("===============================================================");
             Console.WriteLine("Metoda prostokatow:");
@@ -225,15 +226,26 @@ namespace Calki
             Console.WriteLine("===============================================================");
             Console.WriteLine();
             Console.WriteLine("Metoda gl:");
-            Console.WriteLine(Calka.MetodaGaussaLegrande(Funkcje.Custom5, 0, 1, n, wagi, wezly));
-            Console.WriteLine(Calka.MetodaGaussaZlozona(Funkcje.Custom5, 0, 1, n, N, wagi, wezly));
+            Console.WriteLine("Cwiczenie:1");
+            Console.WriteLine(Calka.MetodaGaussaLegrande(Funkcje.Custom3, 0, 1, 2, wagi2, wezly2));
+            Console.WriteLine(Calka.MetodaGaussaLegrande(Funkcje.Custom3, 0, 1, 3, wagi3, wezly3));
+            Console.WriteLine(Calka.MetodaGaussaLegrande(Funkcje.Custom3, 0, 1, 4, wagi4, wezly4));
+            Console.WriteLine("Cwiczenie:3");
+            Console.WriteLine(Calka.MetodaGaussaLegrande(Funkcje.Custom5, 0, 1, 2, wagi2, wezly2));
+            Console.WriteLine(Calka.MetodaGaussaLegrande(Funkcje.Custom5, 0, 1, 3, wagi3, wezly3));
+            Console.WriteLine(Calka.MetodaGaussaLegrande(Funkcje.Custom5, 0, 1, 4, wagi4, wezly4));
+            Console.WriteLine("===============================================================");
+            Console.WriteLine();
+            Console.WriteLine("Metoda GaussaZlozona:");
+            Console.WriteLine("Cwiczenie:1");
+            Console.WriteLine(Calka.MetodaGaussaZlozona(Funkcje.Custom3, 0, 1, 2, 5, wagi2, wezly2));
+            Console.WriteLine("Cwiczenie:3");
+            Console.WriteLine(Calka.MetodaGaussaZlozona(Funkcje.Custom5, 0, 1, 2, 5, wagi2, wezly2));
             Console.WriteLine();
             Console.WriteLine("===============================================================");
             Console.WriteLine();
             Console.WriteLine("Metoda stohastyczna:");
             Console.WriteLine(Calka.MetodaStohastyczna(Funkcje.Custom3, -1, 1, dokladnosc));
-
-            Console.Read();
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using EliminacjaGaussa;
+﻿using Calki;
+using EliminacjaGaussa;
+using Interpolacja;
 using Logarytm_e;
 using MetodaCramera;
 using MetodaMacierzyOdwrotnej;
@@ -6,6 +8,7 @@ using MetodyNumeryczneZadania;
 using OdwracanieMacierzy;
 using OperacjeMacierzy;
 using Pivotting;
+using Pochodne;
 using RozkladLU;
 using Silnia;
 using Wyznaczniki;
@@ -130,12 +133,206 @@ namespace ControlMenu
                     return true;
 
                 case "16":
+                    Console.Clear();
+                    LaunchInterpolacja();
+                    ReturnToMenu();
+                    return true;
+
+                case "17":
+                    Console.Clear();
+                    LaunchPochodne();
+                    ReturnToMenu();
+                    return true;
+
+                case "18":
+                    Console.Clear();
+                    LaunchCalki();
+                    ReturnToMenu();
+                    return true;
+
+                case "25":
                     Console.WriteLine("exiting...");
                     return false;
 
                 default:
                     return true;
             }
+        }
+
+        private static void LaunchCalki()
+        {
+            int dokladnosc = 1000;
+            double[] wagi2 = { 1.0, 1.0 };
+            double[] wezly2 = { -0.577350269, 0.577350269 };
+            double[] wagi3 = { 5.0 / 9.0, 8.0 / 9.0, 5.0 / 9.0 };
+            double[] wezly3 = { -0.774596669, 0.0, 0.774596669 };
+            double[] wagi4 = { 0.347854845, 0.652145155, 0.652145155, 0.347854845 };
+            double[] wezly4 = { -0.861136312, -0.339981044, 0.339981044, 0.861136312 };
+            Console.WriteLine("Dokladnosc calkowania: " + dokladnosc);
+            Console.WriteLine("===============================================================");
+            Console.WriteLine("Metoda prostokatow:");
+            Console.WriteLine();
+            Console.WriteLine("Metoda prostokatow left point:");
+            Console.WriteLine(Calka.MetodaProstokatowLeftPoint(Funkcje.Custom3, -1, 1, dokladnosc));
+            Console.WriteLine("Metoda prostokatow right point:");
+            Console.WriteLine(Calka.MetodaProstokatowRightPoint(Funkcje.Custom3, -1, 1, dokladnosc));
+            Console.WriteLine("Metoda prostokatow mid point:");
+            Console.WriteLine(Calka.MetodaProstokatowMidPoint(Funkcje.Custom3, -1, 1, dokladnosc));
+            Console.WriteLine();
+            Console.WriteLine("===============================================================");
+            Console.WriteLine();
+            Console.WriteLine("Metoda  trapezow:");
+            Console.WriteLine(Calka.MetodaTrapezow(Funkcje.Custom3, -1, 1, dokladnosc));
+            Console.WriteLine();
+            Console.WriteLine("===============================================================");
+            Console.WriteLine();
+            Console.WriteLine("Metoda  Simpsona:");
+            Console.WriteLine(Calka.MetodaSimpsona(Funkcje.Custom3, -1, 1, dokladnosc));
+            Console.WriteLine();
+            Console.WriteLine("===============================================================");
+            Console.WriteLine();
+            Console.WriteLine("Metoda prostokatow:");
+            Console.WriteLine();
+            Console.WriteLine("Metoda prostokatow left point:");
+            Console.WriteLine(Calka.MetodaProstokatowLeftPoint(Funkcje.Custom4, 0, 1, dokladnosc));
+            Console.WriteLine("Metoda prostokatow right point:");
+            Console.WriteLine(Calka.MetodaProstokatowRightPoint(Funkcje.Custom4, 0, 1, dokladnosc));
+            Console.WriteLine("Metoda prostokatow mid point:");
+            Console.WriteLine(Calka.MetodaProstokatowMidPoint(Funkcje.Custom4, 0, 1, dokladnosc));
+            Console.WriteLine();
+            Console.WriteLine("===============================================================");
+            Console.WriteLine();
+            Console.WriteLine("Metoda  trapezow:");
+            Console.WriteLine(Calka.MetodaTrapezow(Funkcje.Custom4, 0, 1, dokladnosc));
+            Console.WriteLine();
+            Console.WriteLine("===============================================================");
+            Console.WriteLine();
+            Console.WriteLine("Metoda  Simpsona:");
+            Console.WriteLine(Calka.MetodaSimpsona(Funkcje.Custom4, 0, 1, dokladnosc));
+            Console.WriteLine();
+            Console.WriteLine("===============================================================");
+            Console.WriteLine();
+            Console.WriteLine("Metoda prostokatow:");
+            Console.WriteLine();
+            Console.WriteLine("Metoda prostokatow left point:");
+            Console.WriteLine(Calka.MetodaProstokatowLeftPoint(Funkcje.Custom5, 0, 1, dokladnosc));
+            Console.WriteLine("Metoda prostokatow right point:");
+            Console.WriteLine(Calka.MetodaProstokatowRightPoint(Funkcje.Custom5, 0, 1, dokladnosc));
+            Console.WriteLine("Metoda prostokatow mid point:");
+            Console.WriteLine(Calka.MetodaProstokatowMidPoint(Funkcje.Custom5, 0, 1, dokladnosc));
+            Console.WriteLine();
+            Console.WriteLine("===============================================================");
+            Console.WriteLine();
+            Console.WriteLine("Metoda  trapezow:");
+            Console.WriteLine(Calka.MetodaTrapezow(Funkcje.Custom5, 0, 1, dokladnosc));
+            Console.WriteLine();
+            Console.WriteLine("===============================================================");
+            Console.WriteLine();
+            Console.WriteLine("Metoda  Simpsona:");
+            Console.WriteLine(Calka.MetodaSimpsona(Funkcje.Custom5, 0, 1, dokladnosc));
+            Console.WriteLine();
+            Console.WriteLine("===============================================================");
+            Console.WriteLine();
+            Console.WriteLine("Metoda gl:");
+            Console.WriteLine("Cwiczenie:1");
+            Console.WriteLine(Calka.MetodaGaussaLegrande(Funkcje.Custom3, 0, 1, 2, wagi2, wezly2));
+            Console.WriteLine(Calka.MetodaGaussaLegrande(Funkcje.Custom3, 0, 1, 3, wagi3, wezly3));
+            Console.WriteLine(Calka.MetodaGaussaLegrande(Funkcje.Custom3, 0, 1, 4, wagi4, wezly4));
+            Console.WriteLine("Cwiczenie:3");
+            Console.WriteLine(Calka.MetodaGaussaLegrande(Funkcje.Custom5, 0, 1, 2, wagi2, wezly2));
+            Console.WriteLine(Calka.MetodaGaussaLegrande(Funkcje.Custom5, 0, 1, 3, wagi3, wezly3));
+            Console.WriteLine(Calka.MetodaGaussaLegrande(Funkcje.Custom5, 0, 1, 4, wagi4, wezly4));
+            Console.WriteLine("===============================================================");
+            Console.WriteLine();
+            Console.WriteLine("Metoda GaussaZlozona:");
+            Console.WriteLine("Cwiczenie:1");
+            Console.WriteLine(Calka.MetodaGaussaZlozona(Funkcje.Custom3, 0, 1, 2, 5, wagi2, wezly2));
+            Console.WriteLine("Cwiczenie:3");
+            Console.WriteLine(Calka.MetodaGaussaZlozona(Funkcje.Custom5, 0, 1, 2, 5, wagi2, wezly2));
+            Console.WriteLine();
+            Console.WriteLine("===============================================================");
+            Console.WriteLine();
+            Console.WriteLine("Metoda stohastyczna:");
+            Console.WriteLine(Calka.MetodaStohastyczna(Funkcje.Custom3, -1, 1, dokladnosc));
+        }
+
+        private static void LaunchPochodne()
+        {
+            const double dx = 0.00001;
+            double h = 0.001;
+
+            Console.WriteLine("Pochodne Pierwszego Stopnia");
+            Console.WriteLine();
+            Console.WriteLine("Pochodna funkcji: f(x)=xsin(x^2)+1 w punkcie x=0");
+            Console.WriteLine("f'(0)= " + PierwszaPochodna.Pochodna(Funkcje.Custom1, 0, dx));
+
+            Console.WriteLine("Pochodna funkcji: f(x)=xsin(x^2)+1 w punkcie x=1");
+            Console.WriteLine("f'(1)= " + PierwszaPochodna.Pochodna(Funkcje.Custom1, 1, dx));
+
+            Console.WriteLine("=================================================================================");
+
+            Console.WriteLine("Dwu punktowe roznice zwykle: f(x)=3x^3−2x^2+1  w punkcie x=0.75");
+            Console.WriteLine("f'(0.75)= " + PierwszaPochodna.DwuPunktoweRozniceZwykle(Funkcje.Custom2, 0.75, h));
+
+            Console.WriteLine("Dwu punktowe roznice centralne: f(x)=3x^3−2x^2+1  w punkcie x=0.75 : ");
+            Console.WriteLine("f'(0.75)= " + PierwszaPochodna.DwuPunktoweRozniceCentralne(Funkcje.Custom2, 0.75, h));
+
+            Console.WriteLine("Trzy punktowe roznice zwykle: f(x)=3x^3−2x^2+1  w punkcie x=0.75 : ");
+            Console.WriteLine("f'(0.75)= " + PierwszaPochodna.TrzyPunktoweRozniceZwykle(Funkcje.Custom2, 0.75, h));
+
+            Console.WriteLine("=================================================================================");
+
+            Console.WriteLine("Dwu punktowe roznice zwykle: f(x)=xsin(x^2)+1  w punkcie x=1");
+            Console.WriteLine("f'(1)= " + PierwszaPochodna.DwuPunktoweRozniceZwykle(Funkcje.Custom1, 1, h));
+            Console.WriteLine("Dwu punktowa roznice centralne: f(x)=xsin(x^2)+1  w punkcie x=1 : ");
+            Console.WriteLine("f'(1)= " + PierwszaPochodna.DwuPunktoweRozniceCentralne(Funkcje.Custom1, 1, h));
+
+            Console.WriteLine("=================================================================================");
+
+            Console.WriteLine("Dwu punktowe roznice centralne: f(x)=e^x  w punkcie x=0 : ");
+            Console.WriteLine("f'(0)= " + PierwszaPochodna.DwuPunktoweRozniceCentralne(Funkcje.Exp, 0, h));
+
+            Console.WriteLine("Trzy punktowe roznice zwykle: f(x)=e^x  w punkcie x=0 : ");
+            Console.WriteLine("f'(0)= " + PierwszaPochodna.TrzyPunktoweRozniceZwykle(Funkcje.Exp, 0, h));
+            Console.WriteLine();
+
+            Console.WriteLine("=================================================================================");
+
+            Console.WriteLine("Pochodne drugiego Stopnia");
+            Console.WriteLine();
+
+            Console.WriteLine("Trzy punktowe roznice zwykle: f(x)=3x^3−2x^2+1  w punkcie x=0.75 : ");
+            Console.WriteLine("f''(0)= " + DrugaPochodna.TrzyPunktoweRozniceZwykle(Funkcje.Custom2, 0.75, h));
+
+            Console.WriteLine("Trzy punktowe roznice centralne: f(x)=3x^3−2x^2+1  w punkcie x=0.75 : ");
+            Console.WriteLine("f''(0)= " + DrugaPochodna.TrzyPunktoweRozniceCentralne(Funkcje.Custom2, 0.75, h));
+        }
+
+        private static void LaunchInterpolacja()
+        {
+            //[1,x,x^2,x^3]
+            double[,] macierzBaza2 = { { 1, 0, 0, 0 }, { 1, 1.5, 2.25, 3.375 }, { 1, 3, 9, 27 }, { 1, 4, 16, 64 } };
+            //[1,x,cosx,sinx]
+            double[,] macierzBaza1 = { { 1, 0, 1, 0 }, { 1, 1.5, 0.0707372016677029, 0.9974949866040544 }, { 1, 3, -0.9899924966004454, 0.1411200080598672 }, { 1, 4, -0.6536436208636119, -0.7568024953079282 } };
+            double[] wektor = { 2, 3, 1, 3 };
+            //chyba baza 1 jest zle skonstruowana
+            double[] wynik1 = MetodyInterpolacji.Interpolacja(macierzBaza1, wektor);
+            double[] wynik2 = MetodyInterpolacji.Interpolacja(macierzBaza2, wektor);
+            Console.WriteLine("Baza: [1, x, cosx, sinx]");
+            Console.Write("[ ");
+            for (var i = 0; i < wynik1.Length; i++)
+            {
+                Console.Write("{0:F5}" + " ", wynik1[i]);
+            }
+            Console.Write("]");
+            Console.WriteLine("\n");
+            Console.WriteLine("Baza: [1,x,cosx,sinx]");
+            Console.Write("[ ");
+            for (var i = 0; i < wynik2.Length; i++)
+            {
+                Console.Write("{0:F5}" + " ", wynik2[i]);
+            }
+            Console.Write("]");
         }
 
         private static void LaunchOdwrocMacierzGauss()

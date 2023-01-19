@@ -8,7 +8,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Calki\Calki.csproj" />
     <ProjectReference Include="..\EliminacjaGaussa\EliminacjaGaussa.csproj" />
+    <ProjectReference Include="..\Interpolacja\Interpolacja.csproj" />
     <ProjectReference Include="..\LiczbyZespolone\LiczbyZespolone.csproj" />
     <ProjectReference Include="..\Logarytm_e\Logarytm_e.csproj" />
     <ProjectReference Include="..\MetodaCramera\MetodaCramera.csproj" />
@@ -17,6 +19,7 @@
     <ProjectReference Include="..\MnozenieMacierzy\OperacjeMacierzy.csproj" />
     <ProjectReference Include="..\OdwracanieMacierzy\OdwracanieMacierzy.csproj" />
     <ProjectReference Include="..\Pivotting\Pivotting.csproj" />
+    <ProjectReference Include="..\Pochodne\Pochodne.csproj" />
     <ProjectReference Include="..\RozkladLU\RozkladLU.csproj" />
     <ProjectReference Include="..\Silnia\Silnia.csproj" />
     <ProjectReference Include="..\Wyznaczniki\Wyznaczniki.csproj" />
