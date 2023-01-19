@@ -25,7 +25,7 @@ namespace TlumienieSprezyny
             plt.XAxis.TickLabelStyle(fontSize: 15);
             plt.SetAxisLimits(xMin, xMax, yMin, yMax);
 
-            plt.SaveFig("C:\\Users\\barte\\Desktop\\" + file + ".png");
+            plt.SaveFig("C:\\Users\\UMK\\Desktop\\" + file + ".png");
         }
 
         public static void DoublePlot(List<double> x, List<double> y, List<double> z, List<double> w, string title, string yaxis, string xaxis, double xMin, double xMax, double yMin, double yMax, string file)
@@ -49,6 +49,7 @@ namespace TlumienieSprezyny
             var plt = new Plot(1600, 1200);
             plt.Add(splt1);
             plt.Add(splt2);
+            plt.Title(title, true, Color.Black, 24, "Open Sans");
             plt.YAxis.Label(yaxis, Color.Black, size: 24, fontName: "Open Sans");
             plt.XAxis.Label(xaxis, Color.Black, size: 24, fontName: "Open Sans");
             plt.YAxis.TickLabelStyle(fontSize: 15);
@@ -56,7 +57,7 @@ namespace TlumienieSprezyny
             plt.SetAxisLimits(xMin, xMax, yMin, yMax);
             plt.Legend();
 
-            plt.SaveFig("C:\\Users\\barte\\Desktop\\" + file + ".png");
+            plt.SaveFig("C:\\Users\\UMK\\Desktop\\" + file + ".png");
         }
     }
 
@@ -146,15 +147,15 @@ namespace TlumienieSprezyny
                 (
                 listEX, listET, listRX, listRT,
                 "Wykres zależności amplitudy położenia od czasu (porównanie)",
-                "t[s]", "x[m]",
+                "x[m]", "t[s]",
                 0, 5.0, -0.8, 1.2,
                 "rk4EulerPlotxt"
                 );
             PlotLinear.DoublePlot
                 (
                 listEZ, listET, listRZ, listRT,
-                "Wykres zależności prędkości od czasu (metoda RK4)",
-                "t[s]", "v[m/s]",
+                "Wykres zależności prędkości od czasu (porównanie)",
+                "v[m/s]", "t[s]",
                 0, 5.0, -8.0, 5.0,
                 "rk4EulerPlotvt"
                 );
@@ -189,7 +190,7 @@ namespace TlumienieSprezyny
             {
                 Console.WriteLine(wynik);
             }
-            File.WriteAllLines("C:\\Users\\barte\\Desktop\\eulerwyniki.txt", wyniki);
+            File.WriteAllLines("C:\\Users\\UMK\\Desktop\\eulerwyniki.txt", wyniki);
 
             #region plotting
 
@@ -197,7 +198,7 @@ namespace TlumienieSprezyny
                 (
                 listX, listT,
                 "Wykres zależności amplitudy położenia od czasu (metoda Eulera)",
-                "t[s]", "x[m]",
+                "x[m]", "t[s]",
                 0, 5.0, -0.8, 1.2,
                 "eulerPlotxt"
                 );
@@ -205,7 +206,7 @@ namespace TlumienieSprezyny
                 (
                 listZ, listT,
                 "Wykres zależności prędkości od czasu (metoda Eulera)",
-                "t[s]", "v[m/s]",
+                "v[m/s]", "t[s]",
                 0, 5.0, -8.0, 5.0,
                 "eulerPlotvt"
                 );
@@ -257,7 +258,7 @@ namespace TlumienieSprezyny
             {
                 Console.WriteLine(wynik);
             }
-            File.WriteAllLines("C:\\Users\\barte\\Desktop\\rk4wyniki.txt", wyniki);
+            File.WriteAllLines("C:\\Users\\UMK\\Desktop\\rk4wyniki.txt", wyniki);
 
             #region plotting
 
@@ -265,7 +266,7 @@ namespace TlumienieSprezyny
                 (
                 listX, listT,
                 "Wykres zależności amplitudy położenia od czasu (metoda RK4)",
-                "t[s]", "x[m]",
+                "x[m]", "t[s]",
                 0, 5.0, -0.8, 1.2,
                 "rk4Plotxt"
                 );
@@ -273,7 +274,7 @@ namespace TlumienieSprezyny
                 (
                 listZ, listT,
                 "Wykres zależności prędkości od czasu (metoda RK4)",
-                "t[s]", "v[m/s]",
+                "v[m/s]", "t[s]",
                 0, 5.0, -8.0, 5.0,
                 "rk4Plotvt"
                 );
@@ -292,8 +293,8 @@ namespace TlumienieSprezyny
             double tn = 6.0;
             double h = 0.01;
 
-            //Rozwiazanie.UseEulerMethod(x0, z0, t0, h, tn);
-            //Rozwiazanie.UseRK4Method(x0, z0, t0, h, tn);
+            Rozwiazanie.UseEulerMethod(x0, z0, t0, h, tn);
+            Rozwiazanie.UseRK4Method(x0, z0, t0, h, tn);
             Rozwiazanie.CompareEulerRK4(x0, z0, t0, h, tn);
         }
     }
