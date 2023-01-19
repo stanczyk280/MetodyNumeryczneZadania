@@ -94,24 +94,7 @@ namespace Calki
 
         public static double MetodaGaussaZlozona(OneArgFunc Func, double xa, double xb, int n, int N, double[] waga, double[] wezly)
         {
-            double przedzial = xb - xa;
-            double h = przedzial / 2 * N;
-            double x1 = 0;
-            double x2 = 0;
-            double xik = 0;
-            double sum = 0;
-
-            for (var k = 1; k <= N; k++)
-            {
-                for (var i = 0; i <= n; i++)
-                {
-                    x1 = (wezly[k] + wezly[k + 1]) / 2;
-                    x2 = (wezly[k + 1] - wezly[k]) / 2;
-                    xik = x1 + x2 * wezly[i];
-                    sum += waga[i] * Func(xik);
-                }
-            }
-            return sum * h;
+            throw new NotImplementedException();
         }
 
         //public static double GetDoubleRandom(double xa, double xb)

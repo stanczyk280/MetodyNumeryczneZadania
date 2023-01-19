@@ -35,7 +35,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pochodne", "Pochodne\Pochod
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Calki", "Calki\Calki.csproj", "{7A2593A6-8974-448C-881D-1475D44A15C3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TlumienieSprezyny", "TlumienieSprezyny\TlumienieSprezyny.csproj", "{A1D2FCBF-80CD-49FA-A170-75D208F8AC06}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TlumienieSprezyny", "TlumienieSprezyny\TlumienieSprezyny.csproj", "{A1D2FCBF-80CD-49FA-A170-75D208F8AC06}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RownaniaNieliniowe", "RownaniaNieliniowe\RownaniaNieliniowe.csproj", "{4276D979-68D8-4782-8279-B2F431E6F1A8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -111,6 +113,10 @@ Global
 		{A1D2FCBF-80CD-49FA-A170-75D208F8AC06}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A1D2FCBF-80CD-49FA-A170-75D208F8AC06}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A1D2FCBF-80CD-49FA-A170-75D208F8AC06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4276D979-68D8-4782-8279-B2F431E6F1A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4276D979-68D8-4782-8279-B2F431E6F1A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4276D979-68D8-4782-8279-B2F431E6F1A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4276D979-68D8-4782-8279-B2F431E6F1A8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
