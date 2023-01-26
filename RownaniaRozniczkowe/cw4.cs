@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ScottPlot.Drawing.Colormaps;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,8 +10,8 @@ namespace RownaniaRozniczkowe
 {
     public static class cw4
     {
-        public static double TempCiala(double temp)
-            => (-0.0245) * (temp - 300);
+        public static double PredkoscChlodzenia(double T)
+            => -0.0245 * (T - 300);
 
         public static void Print(Dictionary<double, double> functionParams)
         {
@@ -19,65 +21,118 @@ namespace RownaniaRozniczkowe
             }
         }
 
-        public static Dictionary<double, double> RK1(double t0, double tk, double temp, double h)
+        public static Dictionary<double, double> RK1(double t0, double tk, double T, double h)
         {
-            List<double> listTemp = new List<double>();
-            List<double> listTime = new List<double>();
+            double Tn;
 
+            List<double> listT = new List<double>();
+            List<double> listTime = new List<double>();
             Dictionary<double, double> functionParams = new Dictionary<double, double>();
 
-            double tempN = 0.0;
-
-            while (t0 < tk)
+            while (t0 <= tk)
             {
-                listTemp.Add(temp);
+                listT.Add(T);
                 listTime.Add(t0);
-                tempN = temp + (h * TempCiala(temp));
-                temp = tempN;
+
+                Tn = T + (h * PredkoscChlodzenia(T));
+                T = Tn;
                 t0 += h;
             }
 
-            for (var i = 0; i < listTemp.Count; i++)
+            for (var i = 0; i < listT.Count; i++)
             {
-                functionParams.Add(listTemp[i], listTime[i]);
+                functionParams.Add(listTime[i], listT[i]);
             }
 
             return functionParams;
         }
 
-        public static Dictionary<double, double> RK4(double t0, double tk, double temp, double h)
+        public static Dictionary<double, double> RK2(double t0, double tk, double T, double h)
         {
-            List<double> listTemp = new List<double>();
+            double k1;
+            double k2;
+
+            List<double> listT = new List<double>();
             List<double> listTime = new List<double>();
-
             Dictionary<double, double> functionParams = new Dictionary<double, double>();
-
-            double kT1;
-            double kT2;
-            double kT3;
-            double kT4;
 
             while (t0 <= tk)
             {
-                listTemp.Add(temp);
+                listT.Add(T);
                 listTime.Add(t0);
 
-                kT1 = h * TempCiala(temp);
+                k1 = PredkoscChlodzenia(T);
+                k2 = PredkoscChlodzenia(T + k1);
 
-                kT2 = h * TempCiala(temp + (0.5 * kT1));
-
-                kT3 = h * TempCiala(temp + (0.5 * kT2));
-
-                kT4 = h * TempCiala(temp + kT3);
-
-                temp = temp + (1.0 / 6.0) * (kT1 + 2 * kT2 + 2 * kT3 + kT4); ;
-
+                T += (0.5) * (k1 + k2);
                 t0 += h;
             }
 
-            for (var i = 0; i < listTemp.Count; i++)
+            for (var i = 0; i < listT.Count; i++)
             {
-                functionParams.Add(listTemp[i], listTime[i]);
+                functionParams.Add(listTime[i], listT[i]);
+            }
+
+            return functionParams;
+        }
+
+        public static Dictionary<double, double> RK2MidPoint(double t0, double tk, double T, double h)
+        {
+            double k1;
+            double k2;
+
+            List<double> listT = new List<double>();
+            List<double> listTime = new List<double>();
+            Dictionary<double, double> functionParams = new Dictionary<double, double>();
+
+            while (t0 <= tk)
+            {
+                listT.Add(T);
+                listTime.Add(t0);
+
+                k1 = PredkoscChlodzenia(T);
+                k2 = PredkoscChlodzenia(T + (0.5 * k1));
+
+                T += k2;
+                t0 += h;
+            }
+
+            for (var i = 0; i < listT.Count; i++)
+            {
+                functionParams.Add(listTime[i], listT[i]);
+            }
+
+            return functionParams;
+        }
+
+        public static Dictionary<double, double> RK4(double t0, double tk, double T, double h)
+        {
+            double k1;
+            double k2;
+            double k3;
+            double k4;
+
+            List<double> listT = new List<double>();
+            List<double> listTime = new List<double>();
+            Dictionary<double, double> functionParams = new Dictionary<double, double>();
+
+            while (t0 <= tk)
+            {
+                listT.Add(T);
+                listTime.Add(t0);
+
+                k1 = PredkoscChlodzenia(T);
+                k2 = h * PredkoscChlodzenia(T + (0.5 * k1));
+                k3 = h * PredkoscChlodzenia(T + (0.5 * k2));
+                k4 = h * PredkoscChlodzenia(T + k3);
+
+                T += (1.0 / 6.0) * (k1 + 2 * k2 + 2 * k3 + k4);
+                t0 += h;
+            }
+
+            for (var i = 0; i < listT.Count; i++)
+            {
+                functionParams.Add(listTime[i], listT[i]);
             }
 
             return functionParams;
