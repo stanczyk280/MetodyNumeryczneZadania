@@ -24,6 +24,6 @@
 | Three-point ordinary differences for second derivative  | Done  |
 | Three-point central differences for second derivative  | Done  |
 | Newton-Cotes quadrature formulas | Done  |
-| Gauss quadrature formulas | In progress |
+| Gauss quadrature formulas | Done |
 | Monte-carlo method  | Done  |
 
